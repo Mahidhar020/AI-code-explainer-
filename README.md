@@ -15,23 +15,13 @@ A simple Streamlit-based web app that explains Python code snippets using basic 
 
 ## 📸 Screenshots
 
-![Example 1](images/example1.png)
-![Example 2](images/example2.png)
-
----
-## 📸 Screenshots
-
-![Example 1](images/example1.png)
-![Example 2](images/example2.png)
-
----## Screenshots
-**App Home Page**
+**Example1**
 
 ![Home Page](example1.png)
 
-**Generated Story Example**
+**Example2**
 
-![Story Example](example2.png)
+![Home page](example2.png)
 
 ---
 
