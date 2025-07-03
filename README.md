@@ -19,6 +19,21 @@ A simple Streamlit-based web app that explains Python code snippets using basic 
 ![Example 2](images/example2.png)
 
 ---
+## 📸 Screenshots
+
+![Example 1](images/example1.png)
+![Example 2](images/example2.png)
+
+---## Screenshots
+**App Home Page**
+
+![Home Page](screenshot1.png)
+
+**Generated Story Example**
+
+![Story Example](screenshot2.png)
+
+---
 
 ## 🛠️ Tech Stack
 
