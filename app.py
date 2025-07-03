@@ -1,16 +1,36 @@
-
 import streamlit as st
+import openai
 
-st.set_page_config(page_title="AI Code Explainer", layout="centered")
+# Set your OpenAI API key here
+openai.api_key = "YOUR_OPENAI_API_KEY"
 
-st.markdown("## 🧠 AI Code Explainer")
-code = st.text_area("Paste your code here:", height=150)
+# App UI
+st.set_page_config(page_title="AI Code Explainer")
+st.markdown("<h1 style='text-align: center;'>🧠 AI Code Explainer</h1>", unsafe_allow_html=True)
+
+# Input text area
+code_input = st.text_area("Paste your code here:", height=150)
+
+# Explain button
 if st.button("Explain Code"):
-    if code.strip() == "for i in range(5):\n    print(i)":
-        explanation = "This loop runs from 0 to 4 and prints each number. It uses the range() function and a for loop in Python."
-    elif code.strip() == "def greet(name):\n    print('Hello,' + name)":
-        explanation = "This function takes a name and prints ‘Hello,’ followed by the name, using Python's def statement and print() function."
+    if not code_input.strip():
+        st.warning("Please enter some code to explain.")
     else:
-        explanation = "This is a Python code snippet. The explanation feature currently supports basic examples."
-    st.markdown("### Explanation:")
-    st.write(explanation)
+        with st.spinner("Explaining..."):
+            try:
+                # OpenAI API call
+                response = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant that explains code in simple terms."},
+                        {"role": "user", "content": f"Explain this code:\n{code_input}"}
+                    ],
+                    temperature=0.5,
+                    max_tokens=300
+                )
+                explanation = response['choices'][0]['message']['content']
+                st.markdown("**Explanation:**")
+                st.success(explanation)
+
+            except Exception as e:
+                st.error(f"An error occurred: {e}")
