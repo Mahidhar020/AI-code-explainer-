@@ -27,11 +27,11 @@ A simple Streamlit-based web app that explains Python code snippets using basic 
 ---## Screenshots
 **App Home Page**
 
-![Home Page](screenshot1.png)
+![Home Page](example1.png)
 
 **Generated Story Example**
 
-![Story Example](screenshot2.png)
+![Story Example](example2.png)
 
 ---
 
